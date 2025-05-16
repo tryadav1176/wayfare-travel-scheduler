@@ -3,35 +3,27 @@ document.addEventListener('DOMContentLoaded', () => {
     
     initDragAndDrop();
     
-    // Initialize scroll animations
     initScrollAnimations();
     
-    // Initialize navigation effects
     initNavigation();
     
-    // Initialize FAQ toggle
     initFaqToggle();
-    
-    // Initialize mobile menu
+
     initMobileMenu();
     
-    // Initialize smooth scrolling
     initSmoothScroll();
 });
 
-// Function to handle drag and drop functionality
 function initDragAndDrop() {
     const cards = document.querySelectorAll('.card:not(.add-card)');
     const columns = document.querySelectorAll('.day-column');
     const addButtons = document.querySelectorAll('.add-card');
     
-    // Initialize draggable cards
     cards.forEach(card => {
         card.addEventListener('dragstart', dragStart);
         card.addEventListener('dragend', dragEnd);
     });
     
-    // Initialize drop zones
     columns.forEach(column => {
         column.addEventListener('dragover', dragOver);
         column.addEventListener('dragenter', dragEnter);
@@ -39,13 +31,11 @@ function initDragAndDrop() {
         column.addEventListener('drop', drop);
     });
     
-    // Initialize add card buttons
     addButtons.forEach(button => {
         button.addEventListener('click', addNewCard);
     });
 }
 
-// Drag and drop functions
 function dragStart() {
     this.classList.add('dragging');
     setTimeout(() => this.classList.add('drag-ghost'), 0);
@@ -60,7 +50,7 @@ function dragOver(e) {
     const afterElement = getDragAfterElement(this, e.clientY);
     const draggable = document.querySelector('.dragging');
     if (afterElement == null) {
-        // If no element is below the cursor, append to end (before add card)
+        
         const addCard = this.querySelector('.add-card');
         if (addCard) {
             this.insertBefore(draggable, addCard);
@@ -84,8 +74,6 @@ function dragLeave() {
 function drop() {
     this.classList.remove('drag-over');
     
-    // You would typically save the new arrangement to a database here
-    // For demo, just show a message
     showNotification('Itinerary updated successfully!');
 }
 

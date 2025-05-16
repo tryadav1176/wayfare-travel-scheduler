@@ -93,18 +93,15 @@ function getDragAfterElement(container, y) {
     }, { offset: Number.NEGATIVE_INFINITY }).element;
 }
 
-// Function to add a new card
 function addNewCard() {
-    // Get the column where the add button was clicked
+
     const column = this.closest('.day-column');
     
-    // Create a modal for adding a new activity
     createAddActivityModal(column);
 }
 
-// Create a modal for adding an activity
 function createAddActivityModal(column) {
-    // Create modal elements
+
     const modal = document.createElement('div');
     modal.className = 'activity-modal';
     
@@ -138,21 +135,19 @@ function createAddActivityModal(column) {
     addButton.className = 'btn-primary';
     addButton.textContent = 'Add Activity';
     addButton.addEventListener('click', () => {
-        // Validate inputs
+    
         if (timeInput.value && activityInput.value) {
-            // Create and add the new card
+   
             addCardToColumn(column, timeInput.value, activityInput.value);
-            // Close modal
+
             document.body.removeChild(modal);
-            // Show success message
+
             showNotification('New activity added!');
         } else {
-            // Show error
             showNotification('Please fill in all fields', 'error');
         }
     });
     
-    // Assemble modal
     buttonContainer.appendChild(cancelButton);
     buttonContainer.appendChild(addButton);
     
@@ -164,10 +159,8 @@ function createAddActivityModal(column) {
     modal.appendChild(modalContent);
     document.body.appendChild(modal);
     
-    // Focus the first input
     timeInput.focus();
-    
-    // Close when clicking outside
+
     modal.addEventListener('click', (e) => {
         if (e.target === modal) {
             document.body.removeChild(modal);
@@ -175,17 +168,15 @@ function createAddActivityModal(column) {
     });
 }
 
-// Add a new card to a column
 function addCardToColumn(column, time, activity) {
-    // Convert 24h time to 12h format with AM/PM
+
     const timeObj = new Date(`2000-01-01T${time}`);
     const formattedTime = timeObj.toLocaleTimeString('en-US', {
         hour: 'numeric',
         minute: 'numeric',
         hour12: true
     });
-    
-    // Create new card
+
     const newCard = document.createElement('div');
     newCard.className = 'card';
     newCard.draggable = true;
@@ -193,27 +184,22 @@ function addCardToColumn(column, time, activity) {
         <div class="card-time">${formattedTime}</div>
         <div class="card-title">${activity}</div>
     `;
-    
-    // Add event listeners
+
     newCard.addEventListener('dragstart', dragStart);
     newCard.addEventListener('dragend', dragEnd);
-    
-    // Add animation class
+
     newCard.classList.add('new-card-animation');
-    
-    // Insert before the add card button
+
     const addCard = column.querySelector('.add-card');
     column.insertBefore(newCard, addCard);
-    
-    // Remove animation class after animation completes
+
     setTimeout(() => {
         newCard.classList.remove('new-card-animation');
     }, 500);
 }
 
-// Show notification
 function showNotification(message, type = 'success') {
-    // Create notification element if it doesn't exist
+
     let notification = document.querySelector('.notification');
     
     if (!notification) {
@@ -221,11 +207,9 @@ function showNotification(message, type = 'success') {
         notification.className = 'notification';
         document.body.appendChild(notification);
     }
-    
-    // Clear any existing notification classes
+
     notification.classList.remove('success', 'error', 'info', 'warning');
-    
-    // Add appropriate class and message
+
     notification.classList.add(type, 'show');
     notification.innerHTML = `
         <div class="notification-icon">
@@ -237,22 +221,18 @@ function showNotification(message, type = 'success') {
         <div class="notification-message">${message}</div>
         <button class="notification-close"><i class="fas fa-times"></i></button>
     `;
-    
-    // Add close button functionality
+
     const closeButton = notification.querySelector('.notification-close');
     closeButton.addEventListener('click', () => {
         notification.classList.remove('show');
-    });
-    
-    // Auto-dismiss after 5 seconds
+
     setTimeout(() => {
         notification.classList.remove('show');
     }, 5000);
 }
 
-// Function to initialize scroll animations
 function initScrollAnimations() {
-    // Add animation classes to elements we want to animate
+   
     const elements = [
         ...document.querySelectorAll('.feature-card'),
         ...document.querySelectorAll('.pricing-card'),
@@ -265,14 +245,11 @@ function initScrollAnimations() {
         element.classList.add('animate-on-scroll');
     });
     
-    // Check if elements are visible on initial load
     checkForVisibleElements();
-    
-    // Check when scrolling
+
     window.addEventListener('scroll', checkForVisibleElements);
 }
 
-// Check for elements that should be animated when visible
 function checkForVisibleElements() {
     const elements = document.querySelectorAll('.animate-on-scroll');
     elements.forEach(element => {
@@ -282,7 +259,6 @@ function checkForVisibleElements() {
     });
 }
 
-// Check if element is in viewport
 function isInViewport(element) {
     const rect = element.getBoundingClientRect();
     return (
@@ -291,7 +267,6 @@ function isInViewport(element) {
     );
 }
 
-// Navigation effects
 function initNavigation() {
     const header = document.querySelector('header');
     
@@ -302,13 +277,11 @@ function initNavigation() {
             header.classList.remove('scrolled');
         }
     });
-    
-    // Initialize active nav items based on scroll position
+
     updateActiveNavLinks();
     window.addEventListener('scroll', updateActiveNavLinks);
 }
 
-// Function to update active nav links based on scroll position
 function updateActiveNavLinks() {
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-links a');
@@ -319,12 +292,11 @@ function updateActiveNavLinks() {
         const sectionId = section.getAttribute('id');
         
         if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-            // Remove active class from all links
+           
             navLinks.forEach(link => {
                 link.classList.remove('active');
             });
-            
-            // Add active class to corresponding link
+
             const correspondingLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
             if (correspondingLink) {
                 correspondingLink.classList.add('active');
@@ -333,7 +305,6 @@ function updateActiveNavLinks() {
     });
 }
 
-// Function to initialize FAQ accordion
 function initFaqToggle() {
     const faqItems = document.querySelectorAll('.faq-item');
     
@@ -341,25 +312,23 @@ function initFaqToggle() {
         const question = item.querySelector('.faq-question');
         
         question.addEventListener('click', () => {
-            // Close all other items
+           
             faqItems.forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains('active')) {
                     otherItem.classList.remove('active');
                 }
             });
             
-            // Toggle current item
+        
             item.classList.toggle('active');
         });
     });
-    
-    // Open the first FAQ item by default
+
     if (faqItems.length > 0) {
         faqItems[0].classList.add('active');
     }
 }
 
-// Function to initialize mobile menu
 function initMobileMenu() {
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const nav = document.querySelector('nav');
@@ -371,7 +340,6 @@ function initMobileMenu() {
     }
 }
 
-// Function to initialize smooth scrolling
 function initSmoothScroll() {
     const links = document.querySelectorAll('a[href^="#"]');
     
@@ -386,13 +354,13 @@ function initSmoothScroll() {
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
-                // Close mobile menu if open
+               
                 const nav = document.querySelector('nav');
                 if (nav.classList.contains('mobile-menu-open')) {
                     nav.classList.remove('mobile-menu-open');
                 }
                 
-                // Scroll to the element
+              
                 window.scrollTo({
                     top: targetElement.offsetTop - 100,
                     behavior: 'smooth'
@@ -402,7 +370,6 @@ function initSmoothScroll() {
     });
 }
 
-// Add CSS for additional elements created by JavaScript
 const style = document.createElement('style');
 style.textContent = `
     /* Modal Styles */

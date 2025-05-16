@@ -6,22 +6,27 @@
     <title>Wayfare - Interactive Travel Itinerary Board</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <meta name="description" content="Wayfare - The visual travel planning platform. Organize, reschedule, and visualize your trips with ease.">
+    <link rel="icon" href="https://img.icons8.com/fluency/48/airplane-mode-on.png" type="image/png">
 </head>
 <body>
     <header>
         <nav>
             <div class="logo">
-                <span>✈️</span> Wayfare
+                <i class="fas fa-paper-plane"></i> Wayfare
             </div>
             <ul class="nav-links">
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Pricing</a></li>
-                <li><a href="#">Testimonials</a></li>
-                <li><a href="#">Blog</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#faq">FAQ</a></li>
             </ul>
             <div class="auth-buttons">
                 <button class="btn-login">Log in</button>
-                <button class="btn-signup">Sign up</button>
+                <button class="btn-signup">Sign up <i class="fas fa-arrow-right"></i></button>
+            </div>
+            <div class="mobile-menu-toggle">
+                <i class="fas fa-bars"></i>
             </div>
         </nav>
     </header>
@@ -31,17 +36,29 @@
         <section class="hero">
             <div class="hero-content">
                 <div class="hero-text">
+                    <div class="badge">
+                        <span><i class="fas fa-star"></i> #1 Travel Planner</span>
+                    </div>
                     <h1>Plan beautifully. Travel better.</h1>
                     <p>Wayfare gives you a drag-and-drop itinerary board to organize, reschedule, and visualize your trips with ease—perfect for solo wanderers and travel planners alike.</p>
                     <div class="cta-buttons">
-                        <button class="btn-primary"><span class="icon">✈️</span> Build Your Itinerary</button>
-                        <button class="btn-secondary"><span class="icon">🎨</span> Try Demo</button>
+                        <button class="btn-primary"><i class="fas fa-paper-plane"></i> Build Your Itinerary</button>
+                        <button class="btn-secondary"><i class="fas fa-play"></i> Watch Demo</button>
+                    </div>
+                    <div class="trust-signals">
+                        <div class="users-count">
+                            <i class="fas fa-user-check"></i> 10K+ Happy Travelers
+                        </div>
+                        <div class="rating">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            <span>4.9/5</span>
+                        </div>
                     </div>
                 </div>
                 <div class="hero-visual">
                     <div class="itinerary-board">
                         <div class="board-header">
-                            <h3>Tokyo Adventure - May 2023</h3>
+                            <h3><i class="fas fa-map-marker-alt"></i> Tokyo Adventure - May 2023</h3>
                         </div>
                         <div class="board-content">
                             <div class="day-column">
@@ -49,14 +66,17 @@
                                 <div class="card" draggable="true">
                                     <div class="card-time">9:00 AM</div>
                                     <div class="card-title">Arrival at Narita Airport</div>
+                                    <div class="card-tag">Travel</div>
                                 </div>
                                 <div class="card" draggable="true">
                                     <div class="card-time">11:00 AM</div>
                                     <div class="card-title">Hotel Check-in</div>
+                                    <div class="card-tag">Accommodation</div>
                                 </div>
                                 <div class="card" draggable="true">
                                     <div class="card-time">1:00 PM</div>
                                     <div class="card-title">Lunch at Tsukiji Market</div>
+                                    <div class="card-tag">Food</div>
                                 </div>
                             </div>
                             <div class="day-column">
@@ -64,10 +84,16 @@
                                 <div class="card" draggable="true">
                                     <div class="card-time">8:00 AM</div>
                                     <div class="card-title">Visit Mt. Fuji</div>
+                                    <div class="card-tag">Activity</div>
                                 </div>
                                 <div class="card" draggable="true">
                                     <div class="card-time">2:00 PM</div>
                                     <div class="card-title">Hakone Hot Springs</div>
+                                    <div class="card-tag">Relaxation</div>
+                                </div>
+                                <div class="add-card">
+                                    <i class="fas fa-plus"></i>
+                                    <div class="add-text">Add Activity</div>
                                 </div>
                             </div>
                             <div class="day-column">
@@ -75,13 +101,15 @@
                                 <div class="card" draggable="true">
                                     <div class="card-time">10:00 AM</div>
                                     <div class="card-title">Shibuya Crossing</div>
+                                    <div class="card-tag">Sightseeing</div>
                                 </div>
                                 <div class="card" draggable="true">
                                     <div class="card-time">1:00 PM</div>
                                     <div class="card-title">Harajuku Shopping</div>
+                                    <div class="card-tag">Shopping</div>
                                 </div>
-                                <div class="card add-card">
-                                    <div class="add-icon">+</div>
+                                <div class="add-card">
+                                    <i class="fas fa-plus"></i>
                                     <div class="add-text">Add Activity</div>
                                 </div>
                             </div>
@@ -89,54 +117,118 @@
                     </div>
                 </div>
             </div>
-            <div class="hero-background">
-                <div class="floating-element plane"></div>
-                <div class="floating-element cloud1"></div>
-                <div class="floating-element cloud2"></div>
-                <div class="floating-element map-point1"></div>
-                <div class="floating-element map-point2"></div>
+            <div class="hero-shapes">
+                <div class="shape shape1"></div>
+                <div class="shape shape2"></div>
+                <div class="shape shape3"></div>
             </div>
         </section>
 
         <!-- Features Section -->
-        <section class="features">
+        <section class="features" id="features">
             <div class="section-header">
+                <div class="badge badge-center">
+                    <span><i class="fas fa-sparkles"></i> Revolutionary Features</span>
+                </div>
                 <h2>Reimagine your travel planning</h2>
                 <p>Drag, drop, and discover new possibilities for your journey</p>
             </div>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🗓️</div>
+                    <div class="feature-icon"><i class="fas fa-calendar-alt"></i></div>
                     <h3>Drag & Drop Planning</h3>
-                    <p>Rearrange your schedule with a simple drag and drop interface.</p>
+                    <p>Rearrange your schedule with a simple drag and drop interface that makes planning intuitive.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌍</div>
+                    <div class="feature-icon"><i class="fas fa-map-marked-alt"></i></div>
                     <h3>Maps Integration</h3>
-                    <p>Visualize your journey with integrated maps and distances.</p>
+                    <p>Visualize your journey with integrated maps and calculate distances between attractions.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
+                    <div class="feature-icon"><i class="fas fa-sync-alt"></i></div>
                     <h3>Real-time Updates</h3>
-                    <p>Share and collaborate with friends in real-time.</p>
+                    <p>Share and collaborate with friends in real-time for perfect group travel coordination.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">📱</div>
+                    <div class="feature-icon"><i class="fas fa-mobile-alt"></i></div>
                     <h3>Mobile Friendly</h3>
-                    <p>Access your itinerary on any device, anywhere.</p>
+                    <p>Access your itinerary on any device, anywhere, with our responsive design.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing Section -->
+        <section class="pricing" id="pricing">
+            <div class="section-header">
+                <div class="badge badge-center">
+                    <span><i class="fas fa-tag"></i> Simple Pricing</span>
+                </div>
+                <h2>Choose the perfect plan for your journey</h2>
+                <p>No hidden fees, cancel anytime</p>
+            </div>
+            <div class="pricing-cards">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Free</h3>
+                        <div class="price">$0<span>/mo</span></div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature-item"><i class="fas fa-check"></i> 3 Trip Itineraries</div>
+                        <div class="feature-item"><i class="fas fa-check"></i> Basic Drag & Drop</div>
+                        <div class="feature-item"><i class="fas fa-check"></i> Email Support</div>
+                        <div class="feature-item disabled"><i class="fas fa-times"></i> Real-time Collaboration</div>
+                        <div class="feature-item disabled"><i class="fas fa-times"></i> Offline Access</div>
+                    </div>
+                    <button class="btn-secondary btn-block">Start Free</button>
+                </div>
+                <div class="pricing-card popular">
+                    <div class="popular-tag">Most Popular</div>
+                    <div class="pricing-header">
+                        <h3>Pro</h3>
+                        <div class="price">$9<span>/mo</span></div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature-item"><i class="fas fa-check"></i> Unlimited Itineraries</div>
+                        <div class="feature-item"><i class="fas fa-check"></i> Advanced Planning Tools</div>
+                        <div class="feature-item"><i class="fas fa-check"></i> Priority Support</div>
+                        <div class="feature-item"><i class="fas fa-check"></i> Real-time Collaboration</div>
+                        <div class="feature-item disabled"><i class="fas fa-times"></i> Offline Access</div>
+                    </div>
+                    <button class="btn-primary btn-block">Start Pro Trial</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Business</h3>
+                        <div class="price">$19<span>/mo</span></div>
+                    </div>
+                    <div class="pricing-features">
+                        <div class="feature-item"><i class="fas fa-check"></i> Everything in Pro</div>
+                        <div class="feature-item"><i class="fas fa-check"></i> Team Collaboration</div>
+                        <div class="feature-item"><i class="fas fa-check"></i> API Access</div>
+                        <div class="feature-item"><i class="fas fa-check"></i> 24/7 Phone Support</div>
+                        <div class="feature-item"><i class="fas fa-check"></i> Offline Access</div>
+                    </div>
+                    <button class="btn-secondary btn-block">Contact Sales</button>
                 </div>
             </div>
         </section>
 
         <!-- Testimonials Section -->
-        <section class="testimonials">
+        <section class="testimonials" id="testimonials">
             <div class="section-header">
+                <div class="badge badge-center">
+                    <span><i class="fas fa-comments"></i> Testimonials</span>
+                </div>
                 <h2>What travelers are saying</h2>
+                <p>Hear from our community of global adventurers</p>
             </div>
             <div class="testimonial-slider">
                 <div class="testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
                     <div class="testimonial-content">
-                        <p>"Wayfare transformed how I plan my trips. The visual board makes it so easy to see my entire journey at a glance."</p>
+                        <p>"Wayfare transformed how I plan my trips. The visual board makes it so easy to see my entire journey at a glance and adjust on the fly."</p>
                     </div>
                     <div class="testimonial-author">
                         <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J.">
@@ -147,8 +239,11 @@
                     </div>
                 </div>
                 <div class="testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
                     <div class="testimonial-content">
-                        <p>"As a travel agent, I use Wayfare daily. My clients love seeing their itineraries laid out so beautifully."</p>
+                        <p>"As a travel agent, I use Wayfare daily. My clients love seeing their itineraries laid out so beautifully and professionally."</p>
                     </div>
                     <div class="testimonial-author">
                         <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marco T.">
@@ -156,6 +251,70 @@
                             <h4>Marco T.</h4>
                             <p>Travel Agent</p>
                         </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"The collaborative features are a game-changer for family trips. No more confusion about who's doing what and when."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Jennifer K.">
+                        <div>
+                            <h4>Jennifer K.</h4>
+                            <p>Family Traveler</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq" id="faq">
+            <div class="section-header">
+                <div class="badge badge-center">
+                    <span><i class="fas fa-question-circle"></i> FAQ</span>
+                </div>
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about Wayfare</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Is Wayfare free to use?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Wayfare offers a free plan with limited features, perfect for occasional travelers. For more advanced features like unlimited itineraries and real-time collaboration, check out our Pro and Business plans.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I share my itinerary with friends who don't use Wayfare?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Yes! You can share a view-only link of your itinerary with anyone, even if they don't have a Wayfare account. For collaborative editing, they would need to create a free account.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Does Wayfare work offline?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Offline access is available on our Business plan. This allows you to view and edit your itineraries even without an internet connection, with changes syncing when you're back online.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <h3>Can I import existing travel plans?</h3>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Absolutely! Wayfare supports importing from popular formats like PDF, Excel, and even email confirmations. Just forward your booking confirmations to your Wayfare account, and we'll organize them for you.</p>
                     </div>
                 </div>
             </div>
@@ -166,15 +325,30 @@
             <div class="cta-content">
                 <h2>Ready to plan your next adventure?</h2>
                 <p>Join thousands of travelers who have transformed their journey planning experience.</p>
-                <button class="btn-primary"><span class="icon">✈️</span> Build Your Itinerary</button>
+                <button class="btn-primary"><i class="fas fa-paper-plane"></i> Start Planning for Free</button>
+                <div class="cta-footnote">No credit card required</div>
+            </div>
+            <div class="cta-shapes">
+                <div class="cta-shape shape1"></div>
+                <div class="cta-shape shape2"></div>
+                <div class="cta-shape shape3"></div>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">
-                <span>✈️</span> Wayfare
+            <div class="footer-info">
+                <div class="footer-logo">
+                    <i class="fas fa-paper-plane"></i> Wayfare
+                </div>
+                <p>Making travel planning visual, collaborative, and fun.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                </div>
             </div>
             <div class="footer-links">
                 <div class="footer-column">
@@ -183,6 +357,7 @@
                         <li><a href="#">Features</a></li>
                         <li><a href="#">Pricing</a></li>
                         <li><a href="#">Roadmap</a></li>
+                        <li><a href="#">Beta Program</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -191,6 +366,7 @@
                         <li><a href="#">About</a></li>
                         <li><a href="#">Blog</a></li>
                         <li><a href="#">Careers</a></li>
+                        <li><a href="#">Press Kit</a></li>
                     </ul>
                 </div>
                 <div class="footer-column">
@@ -199,13 +375,9 @@
                         <li><a href="#">Support</a></li>
                         <li><a href="#">Contact</a></li>
                         <li><a href="#">Privacy</a></li>
+                        <li><a href="#">Terms</a></li>
                     </ul>
                 </div>
-            </div>
-            <div class="social-links">
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
             </div>
         </div>
         <div class="copyright">

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wayfare - Interactive Travel Itinerary Board</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <span>✈️</span> Wayfare
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Blog</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button class="btn-login">Log in</button>
+                <button class="btn-signup">Sign up</button>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Plan beautifully. Travel better.</h1>
+                    <p>Wayfare gives you a drag-and-drop itinerary board to organize, reschedule, and visualize your trips with ease—perfect for solo wanderers and travel planners alike.</p>
+                    <div class="cta-buttons">
+                        <button class="btn-primary"><span class="icon">✈️</span> Build Your Itinerary</button>
+                        <button class="btn-secondary"><span class="icon">🎨</span> Try Demo</button>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="itinerary-board">
+                        <div class="board-header">
+                            <h3>Tokyo Adventure - May 2023</h3>
+                        </div>
+                        <div class="board-content">
+                            <div class="day-column">
+                                <div class="day-header">DAY 1</div>
+                                <div class="card" draggable="true">
+                                    <div class="card-time">9:00 AM</div>
+                                    <div class="card-title">Arrival at Narita Airport</div>
+                                </div>
+                                <div class="card" draggable="true">
+                                    <div class="card-time">11:00 AM</div>
+                                    <div class="card-title">Hotel Check-in</div>
+                                </div>
+                                <div class="card" draggable="true">
+                                    <div class="card-time">1:00 PM</div>
+                                    <div class="card-title">Lunch at Tsukiji Market</div>
+                                </div>
+                            </div>
+                            <div class="day-column">
+                                <div class="day-header">DAY 2</div>
+                                <div class="card" draggable="true">
+                                    <div class="card-time">8:00 AM</div>
+                                    <div class="card-title">Visit Mt. Fuji</div>
+                                </div>
+                                <div class="card" draggable="true">
+                                    <div class="card-time">2:00 PM</div>
+                                    <div class="card-title">Hakone Hot Springs</div>
+                                </div>
+                            </div>
+                            <div class="day-column">
+                                <div class="day-header">DAY 3</div>
+                                <div class="card" draggable="true">
+                                    <div class="card-time">10:00 AM</div>
+                                    <div class="card-title">Shibuya Crossing</div>
+                                </div>
+                                <div class="card" draggable="true">
+                                    <div class="card-time">1:00 PM</div>
+                                    <div class="card-title">Harajuku Shopping</div>
+                                </div>
+                                <div class="card add-card">
+                                    <div class="add-icon">+</div>
+                                    <div class="add-text">Add Activity</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-background">
+                <div class="floating-element plane"></div>
+                <div class="floating-element cloud1"></div>
+                <div class="floating-element cloud2"></div>
+                <div class="floating-element map-point1"></div>
+                <div class="floating-element map-point2"></div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="section-header">
+                <h2>Reimagine your travel planning</h2>
+                <p>Drag, drop, and discover new possibilities for your journey</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🗓️</div>
+                    <h3>Drag & Drop Planning</h3>
+                    <p>Rearrange your schedule with a simple drag and drop interface.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Maps Integration</h3>
+                    <p>Visualize your journey with integrated maps and distances.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔄</div>
+                    <h3>Real-time Updates</h3>
+                    <p>Share and collaborate with friends in real-time.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Access your itinerary on any device, anywhere.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials">
+            <div class="section-header">
+                <h2>What travelers are saying</h2>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"Wayfare transformed how I plan my trips. The visual board makes it so easy to see my entire journey at a glance."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/women/43.jpg" alt="Sarah J.">
+                        <div>
+                            <h4>Sarah J.</h4>
+                            <p>Solo Traveler</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        <p>"As a travel agent, I use Wayfare daily. My clients love seeing their itineraries laid out so beautifully."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Marco T.">
+                        <div>
+                            <h4>Marco T.</h4>
+                            <p>Travel Agent</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="cta-content">
+                <h2>Ready to plan your next adventure?</h2>
+                <p>Join thousands of travelers who have transformed their journey planning experience.</p>
+                <button class="btn-primary"><span class="icon">✈️</span> Build Your Itinerary</button>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <span>✈️</span> Wayfare
+            </div>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="#">Features</a></li>
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Roadmap</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Privacy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Wayfare. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html> 

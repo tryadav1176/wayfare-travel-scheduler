@@ -1,6 +1,6 @@
-// Wait for DOM to load
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize drag and drop for itinerary cards
+    
     initDragAndDrop();
     
     // Initialize scroll animations
@@ -8,6 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Initialize navigation effects
     initNavigation();
+    
+    // Initialize FAQ toggle
+    initFaqToggle();
+    
+    // Initialize mobile menu
+    initMobileMenu();
+    
+    // Initialize smooth scrolling
+    initSmoothScroll();
 });
 
 // Function to handle drag and drop functionality
@@ -216,50 +225,62 @@ function addCardToColumn(column, time, activity) {
 
 // Show notification
 function showNotification(message, type = 'success') {
-    // Create notification element
-    const notification = document.createElement('div');
-    notification.className = `notification ${type}`;
-    notification.textContent = message;
+    // Create notification element if it doesn't exist
+    let notification = document.querySelector('.notification');
     
-    // Add to body
-    document.body.appendChild(notification);
+    if (!notification) {
+        notification = document.createElement('div');
+        notification.className = 'notification';
+        document.body.appendChild(notification);
+    }
     
-    // Trigger animation
-    setTimeout(() => {
-        notification.classList.add('show');
-    }, 10);
+    // Clear any existing notification classes
+    notification.classList.remove('success', 'error', 'info', 'warning');
     
-    // Remove after 3 seconds
+    // Add appropriate class and message
+    notification.classList.add(type, 'show');
+    notification.innerHTML = `
+        <div class="notification-icon">
+            ${type === 'success' ? '<i class="fas fa-check-circle"></i>' : 
+              type === 'error' ? '<i class="fas fa-exclamation-circle"></i>' : 
+              type === 'warning' ? '<i class="fas fa-exclamation-triangle"></i>' : 
+              '<i class="fas fa-info-circle"></i>'}
+        </div>
+        <div class="notification-message">${message}</div>
+        <button class="notification-close"><i class="fas fa-times"></i></button>
+    `;
+    
+    // Add close button functionality
+    const closeButton = notification.querySelector('.notification-close');
+    closeButton.addEventListener('click', () => {
+        notification.classList.remove('show');
+    });
+    
+    // Auto-dismiss after 5 seconds
     setTimeout(() => {
         notification.classList.remove('show');
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 300);
-    }, 3000);
+    }, 5000);
 }
 
 // Function to initialize scroll animations
 function initScrollAnimations() {
-    // Add animation classes to elements
-    const sections = document.querySelectorAll('section:not(.hero)');
-    sections.forEach(section => {
-        section.classList.add('animate-on-scroll');
+    // Add animation classes to elements we want to animate
+    const elements = [
+        ...document.querySelectorAll('.feature-card'),
+        ...document.querySelectorAll('.pricing-card'),
+        ...document.querySelectorAll('.testimonial'),
+        ...document.querySelectorAll('.faq-item'),
+        ...document.querySelectorAll('.section-header')
+    ];
+    
+    elements.forEach(element => {
+        element.classList.add('animate-on-scroll');
     });
     
-    const featureCards = document.querySelectorAll('.feature-card');
-    featureCards.forEach((card, index) => {
-        card.classList.add('animate-on-scroll');
-        card.style.transitionDelay = `${index * 0.1}s`;
-    });
-    
-    const testimonials = document.querySelectorAll('.testimonial');
-    testimonials.forEach((testimonial, index) => {
-        testimonial.classList.add('animate-on-scroll');
-        testimonial.style.transitionDelay = `${index * 0.1}s`;
-    });
-    
-    // Check for elements in viewport on scroll
+    // Check if elements are visible on initial load
     checkForVisibleElements();
+    
+    // Check when scrolling
     window.addEventListener('scroll', checkForVisibleElements);
 }
 
@@ -285,67 +306,112 @@ function isInViewport(element) {
 // Navigation effects
 function initNavigation() {
     const header = document.querySelector('header');
-    const heroSection = document.querySelector('.hero');
     
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 100) {
+        if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
     });
     
-    // Smooth scroll for navigation links
-    const navLinks = document.querySelectorAll('nav a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const targetId = link.getAttribute('href');
-            if (targetId.startsWith('#') && targetId.length > 1) {
-                e.preventDefault();
-                const targetElement = document.querySelector(targetId);
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
-                }
+    // Initialize active nav items based on scroll position
+    updateActiveNavLinks();
+    window.addEventListener('scroll', updateActiveNavLinks);
+}
+
+// Function to update active nav links based on scroll position
+function updateActiveNavLinks() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    
+    sections.forEach(section => {
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+            // Remove active class from all links
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            
+            // Add active class to corresponding link
+            const correspondingLink = document.querySelector(`.nav-links a[href="#${sectionId}"]`);
+            if (correspondingLink) {
+                correspondingLink.classList.add('active');
             }
+        }
+    });
+}
+
+// Function to initialize FAQ accordion
+function initFaqToggle() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        
+        question.addEventListener('click', () => {
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item && otherItem.classList.contains('active')) {
+                    otherItem.classList.remove('active');
+                }
+            });
+            
+            // Toggle current item
+            item.classList.toggle('active');
         });
     });
     
-    // Add some parallax effect to hero background
-    window.addEventListener('scroll', () => {
-        const scrollPosition = window.scrollY;
-        if (scrollPosition <= heroSection.offsetHeight) {
-            const planeElement = document.querySelector('.plane');
-            const cloud1Element = document.querySelector('.cloud1');
-            const cloud2Element = document.querySelector('.cloud2');
-            
-            if (planeElement) planeElement.style.transform = `translateY(${scrollPosition * 0.2}px)`;
-            if (cloud1Element) cloud1Element.style.transform = `translateX(${scrollPosition * 0.1}px)`;
-            if (cloud2Element) cloud2Element.style.transform = `translateX(-${scrollPosition * 0.15}px)`;
-        }
-    });
+    // Open the first FAQ item by default
+    if (faqItems.length > 0) {
+        faqItems[0].classList.add('active');
+    }
+}
+
+// Function to initialize mobile menu
+function initMobileMenu() {
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('nav');
     
-    // Demo button click handler
-    const demoButton = document.querySelector('.btn-secondary');
-    if (demoButton) {
-        demoButton.addEventListener('click', () => {
-            // For demo, just scroll to the board
-            const board = document.querySelector('.itinerary-board');
-            if (board) {
-                board.classList.add('highlight-animation');
-                setTimeout(() => {
-                    board.classList.remove('highlight-animation');
-                }, 1500);
+    if (menuToggle) {
+        menuToggle.addEventListener('click', () => {
+            nav.classList.toggle('mobile-menu-open');
+        });
+    }
+}
+
+// Function to initialize smooth scrolling
+function initSmoothScroll() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    
+    links.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            
+            const targetId = link.getAttribute('href');
+            
+            if (targetId === '#') return;
+            
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Close mobile menu if open
+                const nav = document.querySelector('nav');
+                if (nav.classList.contains('mobile-menu-open')) {
+                    nav.classList.remove('mobile-menu-open');
+                }
                 
+                // Scroll to the element
                 window.scrollTo({
-                    top: board.getBoundingClientRect().top + window.scrollY - 100,
+                    top: targetElement.offsetTop - 100,
                     behavior: 'smooth'
                 });
             }
         });
-    }
+    });
 }
 
 // Add CSS for additional elements created by JavaScript

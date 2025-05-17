@@ -935,7 +935,7 @@ footer {
 
 @media (max-width: 768px) {
     nav {
-        flex-direction: column;
+        flex-direction: row;
         gap: 20px;
     }
 

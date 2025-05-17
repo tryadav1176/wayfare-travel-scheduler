@@ -38,12 +38,12 @@ To experience the demo:
 
 1. Clone this repository:
 ```
-git clone https://github.com/tryadav1176/wayfare-travel-scheduler.git
+git clone https://github.com/yourusername/wayfare.git
 ```
 
 2. Open the project folder:
 ```
-cd wayfare-travel-scheduler
+cd wayfare
 ```
 
 3. Open the `index.html` file in your browser, or use a local development server.

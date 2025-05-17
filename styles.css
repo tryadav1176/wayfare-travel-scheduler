@@ -1,7 +1,5 @@
-/* Import Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 
-/* CSS Reset & Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -1392,24 +1390,21 @@ html {
     }
 }
 
-/* Scrolled header */
 header.scrolled {
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     background-color: rgba(255, 255, 255, 0.95);
     padding: 15px 0;
 }
 
-/* Active nav links */
 .nav-links a.active {
     color: var(--primary);
     font-weight: 600;
 }
 
-/* Mobile menu */
 @media (max-width: 768px) {
     .mobile-menu-open .nav-links {
         display: flex;
-        flex-direction: column;
+        flex-direction: row; /* Changing this to see what are the changes from *initially - column to row */
         position: absolute;
         top: 100%;
         left: 0;
@@ -1431,7 +1426,6 @@ header.scrolled {
     }
 }
 
-/* Enhanced notification */
 .notification {
     position: fixed;
     bottom: 30px;
@@ -1516,7 +1510,6 @@ header.scrolled {
     padding: 5px;
 }
 
-/* Animation refinements */
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
@@ -1544,7 +1537,6 @@ header.scrolled {
     transition-delay: 0.4s;
 }
 
-/* Card refinements */
 .card-time {
     font-size: 0.8rem;
     color: var(--primary);
@@ -1557,7 +1549,6 @@ header.scrolled {
     margin-bottom: 5px;
 }
 
-/* Print styles for itinerary */
 @media print {
     body * {
         visibility: hidden;
@@ -1577,7 +1568,6 @@ header.scrolled {
     }
 } 
 
-/* Floating Feedback Button */
 #feedbackBtn {
   position: fixed;
   bottom: 20px;
@@ -1676,7 +1666,7 @@ header.scrolled {
 .text {
     font-family: 'Inter', sans-serif;
 }
-/* Close button in top-right */
+
 .feedback-popup .close-btn {
   position: absolute;
   top: 10px;
@@ -1688,7 +1678,6 @@ header.scrolled {
   cursor: pointer;
 }
 
-/* Thank You Box */
 #thankYouBox {
   position: fixed;
   bottom: 100px;

@@ -550,7 +550,7 @@ nav {
 .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
+    gap: 25px;
     max-width: 1200px;
     margin: 0 auto;
     width: 90%;
@@ -667,11 +667,13 @@ nav {
     box-shadow: var(--card-shadow);
     transition: var(--transition);
     border: 1px solid rgba(230, 230, 230, 0.5);
+    /* border: 2px solid var(--primary); */
 }
 
 .testimonial:hover {
     transform: translateY(-10px);
     box-shadow: var(--card-hover-shadow);
+    
 }
 
 .testimonial-content {
@@ -683,13 +685,14 @@ nav {
     line-height: 1.6;
     position: relative;
     padding: 0 10px;
+    padding-inline-start: 20px;
 }
 
 .testimonial-content p::before,
 .testimonial-content p::after {
     font-size: 3rem;
     position: absolute;
-    opacity: 0.1;
+    opacity: 0.2;
     font-family: Georgia, serif;
 }
 
@@ -728,6 +731,9 @@ nav {
     font-size: 0.9rem;
 }
 
+.testimonial .testimonial-rating {
+    color: var(--primary-light);
+} 
 /* CTA Section */
 .cta-section {
     background: var(--gradient-primary);
@@ -845,7 +851,7 @@ footer {
     text-align: center;
     padding-top: 20px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: rgba(255, 255, 255, 0.5);
+    color: rgba(6, 6, 6, 0.5);
     font-size: 0.9rem;
     width: 90%;
     max-width: 1200px;

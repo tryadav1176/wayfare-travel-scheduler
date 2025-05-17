@@ -334,7 +334,21 @@
                 <div class="cta-shape shape3"></div>
             </div>
         </section>
+
+<!-- Feedback Form -->
+        <button id="feedbackBtn" onclick="toggleForm()">Feedback</button>
+        <div id="feedbackForm" class="feedback-popup">
+        <button class="close-btn" onclick="closeForm()">×</button>
+        <h3>What can we do to improve our product?</h3>
+        <p>Feedback is much appreciated!</p>
+        <form onsubmit="submitFeedback(event)">
+        <textarea placeholder="Start typing..." class="text"></textarea>
+        <button type="submit" class="submit-btn">Submit</button>
+        </form>
+        </div>
+        <div id="thankYouBox">Thank you for your feedback!</div>
     </main>
+    
 
     <footer>
         <div class="footer-content">

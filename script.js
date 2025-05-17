@@ -556,3 +556,37 @@ style.textContent = `
 `;
 
 document.head.appendChild(style); 
+
+// Feedback Form
+const feedbackForm = document.getElementById("feedbackForm");
+const feedbackBtn = document.getElementById("feedbackBtn");
+const thankYouBox = document.getElementById("thankYouBox");
+
+function toggleForm() {
+  feedbackForm.style.display = "block";
+  feedbackBtn.style.display = "none";
+}
+
+function closeForm() {
+  feedbackForm.style.display = "none";
+  feedbackBtn.style.display = "block";
+}
+
+function submitFeedback(e) {
+  e.preventDefault();
+
+  // Hide form
+  feedbackForm.style.display = "none";
+
+  // Clear textarea
+  feedbackForm.querySelector("textarea").value = "";
+
+  // Show thank you message
+  thankYouBox.style.display = "block";
+
+  // Hide thank you and show button again
+  setTimeout(() => {
+    thankYouBox.style.display = "none";
+    feedbackBtn.style.display = "block";
+  }, 4000);
+}

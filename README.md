@@ -2,6 +2,7 @@
 
 ![Wayfare](https://img.shields.io/badge/Wayfare-Travel%20Planner-4a6bff)
 
+[Wayfare](https://wayfare-travel-scheduler.vercel.app/)
 Wayfare is a modern, interactive travel itinerary planning tool that allows travelers to organize their trips with a beautiful drag-and-drop interface.
 
 ## Features
@@ -99,3 +100,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ---
 
 Made with ❤️ for travelers everywhere 
+
